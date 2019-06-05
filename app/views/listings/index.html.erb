@@ -1,0 +1,23 @@
+<section class="todoapp">
+
+  <header class="header">
+		<h1>Listings</h1>
+		<input class="new-todo" placeholder="Make a New Listing/Filter Listings(decide later)" autofocus="">
+	</header>
+
+  <section class="main">
+  <ul class="todo-list">
+  <% @listings.each do |list| %>
+    <li>
+      <div class="view">
+        <label><a href="#"><%= link_to list.title, listing_path(list) %></a></label>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+
+</section>
+
+	<footer class="footer" style="display: block;">
+	</footer>
+</section>
