@@ -8,12 +8,17 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
-    @feature = @listing.features.build 
+    @feature = @listing.features.build
   end
 
   def create
-    @listing = Listing.create(listing_params)
-    redirect_to listing_url(@listing)
+    @listing = Listing.new(listing_params)
+    if @listing.save
+      redirect_to listing_url(@listing)
+    else
+      @listings = Listing.all
+      render :index
+    end
   end
 
   private

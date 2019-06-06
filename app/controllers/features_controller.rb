@@ -2,8 +2,11 @@ class FeaturesController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id]) #finding the parents
     @feature = @listing.features.build(feature_params)
-    @feature.save
-    redirect_to listing_path(@listing)
+    if @feature.save
+      redirect_to listing_path(@listing)
+    else
+      render "listings/show"
+    end
   end
 
   private

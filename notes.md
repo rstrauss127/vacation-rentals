@@ -32,9 +32,12 @@ vacation
 
   POST /listing/:id/features
   Nested Resource - Features are nested in terms of URLs under their parent listing
-  
+
   Does it impact my database? - need a featuress table - associated with a listing
   Does it impact my URLs?
 
+# Step 4: Validations
+  Validate that listings have a title
+  Validate that features have a description 
 
 #Step whatever fix css
