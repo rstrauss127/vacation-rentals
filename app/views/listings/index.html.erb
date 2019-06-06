@@ -2,7 +2,11 @@
 
   <header class="header">
 		<h1>Listings</h1>
-		<input class="new-todo" placeholder="Make a New Listing/Filter Listings(decide later)" autofocus="">
+
+    <%= form_for(@listing) do |f| %>
+      <%= f.text_field :title, :class => 'new-todo' %>
+      <%= f.submit %>
+    <% end %>
 	</header>
 
   <section class="main">
@@ -14,7 +18,7 @@
       </div>
     </li>
   <% end %>
-  </ul> 
+  </ul>
 </section>
 
 	<footer class="footer" style="display: block;">
