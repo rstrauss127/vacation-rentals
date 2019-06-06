@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
+    @feature = @listing.features.build 
   end
 
   def create

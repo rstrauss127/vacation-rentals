@@ -19,4 +19,22 @@ listing
 
 vacation
     belongs to a listing
+
+# Step 3: Add features to a listing
+  A Listing has many features and every feature belongs to a listing
+
+  listings
+
+  items
+  id  description list_id
+  1   Milk        2    
+  2   Cookies     2
+
+  POST /listing/:id/features
+  Nested Resource - Features are nested in terms of URLs under their parent listing
+  
+  Does it impact my database? - need a featuress table - associated with a listing
+  Does it impact my URLs?
+
+
 #Step whatever fix css

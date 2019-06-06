@@ -2,18 +2,21 @@
 
   <header class="header">
 		<h1><%= @listing.title %></h1>
-		<input class="new-todo" placeholder="Add a new item" autofocus="">
+    <%= form_for([@listing, @feature ]) do |f| %>
+      <%= f.text_field :description, :class => 'new-todo' %>
+      <%= f.submit %>
+    <% end %>
 	</header>
 
   <section class="main">
   <ul class="todo-list">
-
-    <li>
-      <div class="view">
-        <label>Address: </label>
-      </div>
-    </li>
-
+    <%= @listing.features.each do |feat| %>
+      <li>
+        <div class="view">
+          <label><%= feat.description  %> </label>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </section>
 
