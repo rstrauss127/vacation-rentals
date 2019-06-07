@@ -11,6 +11,6 @@ class FeaturesController < ApplicationController
 
   private
   def feature_params
-    params.require(:feature).permit(:description)
+    params.require(:feature).permit(:description, :address, :bedrooms, :bathrooms, :max_guests, :rate)
   end
 end

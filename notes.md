@@ -25,7 +25,7 @@ vacation
 
   listings
 
-  items
+  features
   id  description list_id
   1   Milk        2    
   2   Cookies     2
@@ -38,6 +38,20 @@ vacation
 
 # Step 4: Validations
   Validate that listings have a title
-  Validate that features have a description 
+  Validate that features have a description
 
-#Step whatever fix css
+# Step 5: Add fields to features
+  Does it change my db? - yes. need new migration file, Add column to features table.
+    address:string
+    
+  What URLs do i need? none
+
+# Step Later: Add State(available/unavailable) to a Listing  
+  -Mark listings as available or unavailable
+  what urls do i need and how might my databse change?
+  - The idea of a listing being available/unavailable requires data
+  -new form for updating the status of a listing => which means new url
+
+  Anything that is going to change a lsiting should be a PUT request to /listings/:id
+
+# Step 6: Deleting Features from a Listing
