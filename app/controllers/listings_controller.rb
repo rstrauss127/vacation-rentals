@@ -1,8 +1,14 @@
 class ListingsController < ApplicationController
+  before_action :authentication_required
+
   def index
-    @listing = Listing.new
-    @listings = Listing.all
-    #raise @listings.inspect #was the controlroller able to get the lists from the db
+    if session[:user_id].present? #is user logged in?
+      @listing = Listing.new
+      @listings = Listing.all
+      #raise @listings.inspect #was the controlroller able to get the lists from the db
+    else
+      redirect_to root_path
+    end
   end
 
   def show

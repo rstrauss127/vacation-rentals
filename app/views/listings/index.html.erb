@@ -10,17 +10,18 @@
 	</header>
 
   <section class="main">
-  <ul class="todo-list">
-  <% @listings.each do |list| %>
-    <li>
-      <div class="view">
-        <label><a href="#"><%= link_to list.title, listing_path(list) %></a></label>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+    <ul class="todo-list">
+      <% @listings.each do |list| %>
+        <li>
+          <div class="view">
+            <label><a href="#"><%= link_to list.title, listing_path(list) %></a></label>
+          </div>
+        </li>
+    <% end %>
+    </ul>
+  </section>
 </section>
 
-	<footer class="footer" style="display: block;">
+	<footer class="info">
+    <%= link_to "Log Out", logout_path %>
 	</footer>
-</section>
