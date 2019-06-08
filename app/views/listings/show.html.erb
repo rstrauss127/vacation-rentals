@@ -3,7 +3,6 @@
   <header class="header">
 		<h1><%= @listing.title %></h1>
     <%= form_for([@listing, @feature]) do |f| %>
-      
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@feature.errors.full_messages_for(:description).first || "Enter a new feature description") %>
       <%= f.submit :style => "display: none" %>
     <% end %>
@@ -18,10 +17,14 @@
         </div>
       </li>
     <% end %>
-
   </ul>
 </section>
 
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+
 	<footer class="footer" style="display: block;">
+
 	</footer>
 </section>

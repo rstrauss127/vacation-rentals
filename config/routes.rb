@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :listings do
-    resources :features
+    resources :bookings
   end
   resources :users, only: [:new, :create]
   get '/login' => "sessions#new"
