@@ -1,30 +1,26 @@
 <section class="todoapp">
 
   <header class="header">
-		<h1><%= @listing.title %></h1>
-    <%= form_for([@listing, @feature]) do |f| %>
-      <%= f.text_field :description, :class => "new-todo", :placeholder => (@feature.errors.full_messages_for(:description).first || "Enter a new feature description") %>
-      <%= f.submit :style => "display: none" %>
-    <% end %>
+	   <h1><%= @listing.title %></h1>
 	</header>
 
   <section class="main">
-  <ul class="todo-list">
-    <%= @listing.features.each do |feat| %>
-      <li>
-        <div class="view">
-          <label><%= feat.description  %> </label>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
+    <ul class="todo-list">
+      <%= @listing.features.each do |feat| %>
+        <li>
+          <div class="view">
+            <label><%= feat.description %></label>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
 
 	<footer class="footer" style="display: block;">
-
+    <%= link_to "Log Out", logout_path %>
 	</footer>
 </section>

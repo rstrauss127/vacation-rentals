@@ -43,7 +43,7 @@ vacation
 # Step 5: Add fields to features
   Does it change my db? - yes. need new migration file, Add column to features table.
     address:string
-    
+
   What URLs do i need? none
 
 # Step Later: Add State(available/unavailable) to a Listing  
@@ -54,4 +54,6 @@ vacation
 
   Anything that is going to change a lsiting should be a PUT request to /listings/:id
 
-# Step 6: Deleting Features from a Listing
+# Step 6: Add Bookings
+A booking belongs_to a listing
+a booking has_many Users, through listings

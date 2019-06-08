@@ -12,4 +12,5 @@
  *
  *= require 'todo-mvc-base'
  *= require 'listings'
- */
+ *= require 'simple_calendar'
+*/
