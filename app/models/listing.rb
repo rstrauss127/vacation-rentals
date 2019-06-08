@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
-  has_many :features #adds methods to model
+  belongs_to :user
+  has_many :reservations #adds methods to model
   validates :title, presence: true
 end

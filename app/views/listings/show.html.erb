@@ -18,6 +18,8 @@
 
   <%= month_calendar do |date| %>
     <%= date %>
+    <%= link_to "Book", new_listing_reservation_path(@listing.id) %>
+
   <% end %>
 
 	<footer class="footer" style="display: block;">
