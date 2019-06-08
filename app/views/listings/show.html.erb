@@ -6,13 +6,13 @@
 
   <section class="main">
     <ul class="todo-list">
-      <%= @listing.features.each do |feat| %>
         <li>
           <div class="view">
-            <label><%= feat.description %></label>
+            <label>Description: <%= @listing.description %></label>
+            <label>Bedrooms: <%= @listing.bedrooms %></label>
+            <label>Bathrooms: <%= @listing.bathrooms %></label>
           </div>
         </li>
-      <% end %>
     </ul>
   </section>
 

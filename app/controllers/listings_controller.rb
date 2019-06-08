@@ -14,7 +14,11 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
-    @feature = @listing.features.build
+#    @feature = @listing.features.build
+  end
+
+  def new
+    @listing = Listing.new
   end
 
   def create
@@ -29,6 +33,6 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    params.require(:listing).permit(:title)
+    params.require(:listing).permit(:title, :description, :bathrooms, :bedrooms)
   end
 end
