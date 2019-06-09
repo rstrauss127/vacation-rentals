@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
-#    @feature = @listing.features.build
+    @reservations = @listing.reservations
   end
 
   def new

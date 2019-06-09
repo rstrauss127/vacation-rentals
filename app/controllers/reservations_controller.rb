@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def new
-  #  
+    
   end
 
   def create

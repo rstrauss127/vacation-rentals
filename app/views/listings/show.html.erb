@@ -16,11 +16,11 @@
     </ul>
   </section>
 
-  <%= month_calendar do |date| %>
+  <%= month_calendar(attribute: :start_date) do |date| %>
     <%= date %>
     <%= link_to "Book", new_listing_reservation_path(@listing.id) %>
-
   <% end %>
+
 
 	<footer class="footer" style="display: block;">
     <%= link_to "Log Out", logout_path %>

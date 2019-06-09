@@ -4,6 +4,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.datetime :start_date
       t.datetime :end_date
       t.integer :host_id
+      t.integer :listing_id
+      t.integer :user_id
       t.timestamps
     end
   end

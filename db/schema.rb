@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_06_08_212840) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "host_id"
+    t.integer "listing_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
