@@ -3,7 +3,6 @@ class ListingsController < ApplicationController
 
   def index
     if session[:user_id].present? #is user logged in?
-      @listing = Listing.new
       @listings = Listing.all
       #raise @listings.inspect #was the controlroller able to get the lists from the db
     else
@@ -14,7 +13,7 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
-    @reservations = @listing.reservations
+    #@reservations = @listing.reservations
   end
 
   def new
@@ -23,11 +22,12 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
       redirect_to listing_url(@listing)
     else
-      @listings = Listing.all
-      render :index
+      flash[:notice] = @listing.errors
+      render :new
     end
   end
 

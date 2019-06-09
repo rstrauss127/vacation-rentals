@@ -2,10 +2,7 @@
 
   <header class="header">
 		<h1>Listings</h1>
-    <%= form_for(@listing) do |f| %>
-      <%= f.text_field :title, :class => "new-todo", :placeholder => (@listing.errors.full_messages_for(:title).first || "Enter a new list name") %>
-    	<%= f.submit :style => "display: none" %>
-    <% end %>
+    <%= link_to "New Listing", new_listing_path, class: "new-todo" %>
 	</header>
 
   <section class="main">

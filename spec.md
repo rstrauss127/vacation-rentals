@@ -22,3 +22,29 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+<section class="todoapp">
+
+  <header class="header">
+		<h1>Listings</h1>
+    <%= form_for(@listing) do |f| %>
+      <%= f.text_field :title, :class => "new-todo", :placeholder => (@listing.errors.full_messages_for(:title).first || "Enter a new list name") %>
+    	<%= f.submit :style => "display: none" %>
+    <% end %>
+	</header>
+
+  <section class="main">
+    <ul class="todo-list">
+      <% @listings.each do |list| %>
+        <li>
+          <div class="view">
+            <label><a href="#"><%= link_to list.title, listing_path(list) %></a></label>
+          </div>
+        </li>
+    <% end %>
+    </ul>
+  </section>
+</section>
+
+	<footer class="info">
+    <%= link_to "Log Out", logout_path %>
+	</footer>
