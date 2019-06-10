@@ -54,6 +54,12 @@ vacation
 
   Anything that is going to change a lsiting should be a PUT request to /listings/:id
 
-# Step 6: Add Bookings
-A booking belongs_to a listing
-a booking has_many Users, through listings
+# Step 6: Add Reservations
+A Reservation belongs_to a listing
+a reservation has_many  Users, through listing(belongs_to many?)
+
+user has many reservations through listings
+
+listing has many reservations
+
+form for new reservation should have 2 collection_select boxes, one for start_date and one for end_date

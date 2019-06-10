@@ -15,15 +15,14 @@
         </li>
     </ul>
   </section>
-  
+
 <section>
   <%= month_calendar(attribute: :start_date) do |date| %>
     <%= date %>
-    <%= link_to "Book", new_listing_reservation_path(@listing.id) %>
   <% end %>
 </section>
 
-
+<%= link_to "Book", new_listing_reservation_path(@listing) %>
 
 <footer class="footer">
     <%= link_to "Log Out", logout_path %>
