@@ -5,7 +5,8 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.create(reservation_params)
+    @listing = Listing.find(params[:listing_id])
+    @reservation = @listing.reservations.build(reservation_params)
     if @reservation.save
       redirect_to root_path
     else
