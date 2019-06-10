@@ -1,4 +1,4 @@
-<%= form_for(@reservation) do |f| %>
+<%= form_for([@listing, @reservation]) do |f| %>
   <%= f.label "start date" %>
   <%= date_select(:reservation, :start_date) %><br>
 
@@ -6,6 +6,7 @@
   <%= date_select(:reservation, :end_date) %>
 
   <%= f.hidden_field :guest_id, :value => current_user.id %>
-  <%= f.hidden_field :listing_id, :value => params[:id]%>
-  <%= f.submit "New Reservation" %>
+  <%= f.hidden_field :user_id, :value => @listing.user_id %>
+  <%= f.submit %>
+
 <% end %>
