@@ -15,6 +15,11 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def index
+    @listing = Listing.find(params[:listing_id])
+    @reservations = @listing.reservations
+  end
+
   def show
   end
 

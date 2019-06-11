@@ -1,0 +1,6 @@
+<h1>Reservation list for __</h1>
+<ul>
+  <%= @reservations.each do |r| %>
+    <li><%= r.start_date %></li>
+  <% end %>
+</ul>

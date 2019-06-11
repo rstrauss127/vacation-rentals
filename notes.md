@@ -63,3 +63,20 @@ user has many reservations through listings
 listing has many reservations
 
 form for new reservation should have 2 collection_select boxes, one for start_date and one for end_date
+
+#Step 7: How are we going to show reservations?
+  since a reservation really belongs to 2 users, the owner of the listing and the reservation maker, we need to classify users.
+  -Create new resource Owner
+    Only Owners can create new listings.
+    -Add checkbox on signup page to specifcy if Owner or not.
+  -Create new resource Guest
+    A User becomes a guest when they create a reservation.
+
+    user_table
+      id  
+    guest_table
+      id  user_id listing_id length_of_stay
+    owner_table
+      user_id listing_id
+
+  Next time: making nested index page  
