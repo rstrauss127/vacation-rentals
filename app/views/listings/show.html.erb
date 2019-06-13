@@ -16,11 +16,6 @@
     </ul>
   </section>
 
-<section>
-  <%= month_calendar(attribute: :start_date) do |date| %>
-    <%= date %>
-  <% end %>
-</section>
 
 <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
 

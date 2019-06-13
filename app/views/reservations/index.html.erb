@@ -1,6 +1,9 @@
 <h1>Reservation list for __</h1>
-<ul>
-  <%= @reservations.each do |r| %>
-    <li><%= r.guest_email %></li>
+<section>
+  <%= month_calendar(attribute: :start_date) do |date| %>
+    <%= date %>
+    <% @reservations.select{|r| r.start_date == date}.each do |res| %>
+      <%= res.guest_email %>
+    <% end %>
   <% end %>
-</ul>
+</section>
