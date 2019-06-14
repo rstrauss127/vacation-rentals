@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
   def show
     # i need to load the listing
     @listing = Listing.find(params[:id])
-    #@reservations = @listing.reservations
+    @reservations = @listing.reservations
   end
 
   def new

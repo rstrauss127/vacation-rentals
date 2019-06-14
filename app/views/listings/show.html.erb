@@ -16,6 +16,7 @@
     </ul>
   </section>
 
+<%= render partial: "/calendar", locals: {reservations: @reservations} %>
 
 <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
 
