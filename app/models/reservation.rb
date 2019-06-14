@@ -1,9 +1,6 @@
 class Reservation < ApplicationRecord
-
   belongs_to :listing
-  #has_many :users, through :listing ??
-
-  #need to write custom validations for :start_date and :end_date
+  has_many :users, through: :listing
 
   def start_time
     self.my_related_model.start_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
