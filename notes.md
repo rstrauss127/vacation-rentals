@@ -80,3 +80,8 @@ form for new reservation should have 2 collection_select boxes, one for start_da
       user_id listing_id
 
   Next time: making nested index page  
+
+
+  add_column :users, :owner, :boolean
+  rename_column :listings, :user_id, :owner_id
+  remove_column :reservations, :user_id, :integer
