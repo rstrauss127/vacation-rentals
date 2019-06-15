@@ -14,14 +14,12 @@
           </div>
         </li>
     </ul>
+      <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
   </section>
 
-<%= render partial: "/calendar", locals: {reservations: @reservations} %>
+  <%= render partial: "/calendar", locals: {reservations: @reservations} %>
 
-<%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
-
-<footer class="footer">
-    <%= link_to "Log Out", logout_path %>
-</footer>
 
 </section>
+
+<%= render "partials/footer" %>
