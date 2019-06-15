@@ -21,8 +21,8 @@ div.field_with_errors input[type="text"] {
   .prev-month {}
   .next-month { }
   .current-month {}
+}
 
-  .has-events {
-    border: 1px solid green;
-  }
+.booked {
+  border: 50px solid green;
 }

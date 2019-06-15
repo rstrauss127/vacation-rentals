@@ -2,6 +2,8 @@
   <%= month_calendar(attribute: :start_date) do |date| %>
     <%= date %>
     <% reservations.select{|r| r.start_date == date}.each do |res| %>
-      <%= res.guest_email %>
+      <div class="booked">
+        Booked
+      </div>
     <% end %>
   <% end %>
