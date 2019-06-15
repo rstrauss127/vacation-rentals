@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
   end
 
   def guest_email
-    @user =  User.find(self.user_id)
+    @user =  User.find(self.guest_id)
     return @user.email
   end
 end

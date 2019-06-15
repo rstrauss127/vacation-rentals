@@ -82,6 +82,8 @@ form for new reservation should have 2 collection_select boxes, one for start_da
   Next time: making nested index page  
 
 
-  add_column :users, :owner, :boolean
-  rename_column :listings, :user_id, :owner_id
-  remove_column :reservations, :user_id, :integer
+# Step 8: Reservations
+  []-Delete end_date from Reservations table. A reservation will only be one day
+  []- A user should only be able to book dates that are not already reserved(model method)
+  []- An user should only be allowed to create reservations for listings they don't own
+  []-model method to turn :owner=true when a user creates a property for the first time

@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  belongs_to :owner, :class_name => 'User'
+  belongs_to :user
   has_many :reservations #adds methods to model
   has_many :users, through: :reservations
 
