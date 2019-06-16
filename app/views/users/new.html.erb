@@ -2,9 +2,9 @@
   <header class="header">
     <h1>Sign Up</h1>
     <%= form_for(@user) do |f| %>
-      <%= f.text_field :email, class: 'new-todo', placeholder: "Register with your email" %>
+      <%= f.text_field :email, class: 'new-todo', :placeholder => (@user.errors.full_messages_for(:email).first || "Enter Email") %>
 
-      <%= f.text_field :password, class: 'new-todo', placeholder: "Enter password" %>
+      <%= f.text_field :password, class: 'new-todo', :placeholder => (@user.errors.full_messages_for(:password).first || "Enter a Password") %>
       <%= f.submit %>
     <% end %>
   </header>
