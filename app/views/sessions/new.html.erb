@@ -6,7 +6,10 @@
       <input type="text" name="password" class="new-todo" placeholder="password">
       <input type="submit" value="Log In">
     <% end %>
-
-    <%= link_to('Log in with Facebook!', '/auth/facebook') %>
   </header>
 </section>
+
+<footer class="info">
+    <%= link_to 'Log in with Facebook!', '/auth/facebook' %><br>
+    <%= link_to 'Sign Up', '/users/new' %>
+</footer>
