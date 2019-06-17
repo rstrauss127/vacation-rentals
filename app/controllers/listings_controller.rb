@@ -21,17 +21,16 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = current_user.listings.build(listing_params)
+    @listing = Listing.create(listing_params)
     if @listing.save
       redirect_to listing_url(@listing)
     else
-      puts @listing.errors.full_messages
       render :new
     end
   end
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :description, :bathrooms, :bedrooms, :owner)
+    params.require(:listing).permit(:title, :description, :bathrooms, :bedrooms, :user_id)
   end
 end

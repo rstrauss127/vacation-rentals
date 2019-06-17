@@ -9,6 +9,7 @@
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@listing.errors.full_messages_for(:description).first || "Enter a Description") %>
       <%= f.text_field :bedrooms, :class => "new-todo", :placeholder => (@listing.errors.full_messages_for(:bedrooms).first || "Enter the number of bedrooms") %>
       <%= f.text_field :bathrooms, :class => "new-todo", :placeholder => (@listing.errors.full_messages_for(:bathrooms).first || "Enter number of bathrooms") %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.submit :style => "display: none" %>
     <% end %>
 
