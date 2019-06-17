@@ -9,10 +9,10 @@ class ReservationsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @reservation = @listing.reservations.build(reservation_params)
     if @reservation.save
-      redirect_to listing_path(@listing)
+      redirect_to listing_reservation_path(@listing, @reservation)
     else
-      puts @reservation.errors.full_messages
-      redirect_to(listing_path(params[:listing_id]))
+      redirect_to new_listing_reservation_path
+      flash[:notice] = @reservation.errors.full_messages_for(:start_date)
     end
   end
 

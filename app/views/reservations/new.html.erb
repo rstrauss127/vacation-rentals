@@ -1,4 +1,8 @@
 <section class="new-todo">
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
   <%= form_for([@listing, @reservation]) do |f| %>
     <%= f.label "start date" %>
     <%= date_select(:reservation, :start_date) %><br>
