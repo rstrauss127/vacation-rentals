@@ -12,4 +12,6 @@ class Listing < ApplicationRecord
   validates :bathrooms, presence: {message: "Number of bathrooms required"}
 
   validates :description, presence: {message: "Description required"}
+
+
 end

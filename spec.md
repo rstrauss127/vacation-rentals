@@ -22,8 +22,8 @@ Specs:
 
 - [ ] Include reasonable validations
 
-
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+  listings/most_reservations
 
 - [x] Include signup (how e.g. Devise)
 
@@ -40,8 +40,9 @@ Specs:
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
   - listings/9/reservations/new
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
-
+- [x] Include form display of validation errors
+  - listings/new
+  - reservation/new
 Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers

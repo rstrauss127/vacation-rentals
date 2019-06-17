@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id])
     @reservation = @listing.reservations.build(reservation_params)
+    @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to listing_reservation_path(@listing, @reservation)
     else
@@ -27,6 +28,6 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:start_date, :guest_id, :listing_id, :user_id)
+    params.require(:reservation).permit(:start_date)
   end
 end
