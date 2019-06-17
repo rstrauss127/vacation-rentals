@@ -3,9 +3,6 @@
     <%= f.label "start date" %>
     <%= date_select(:reservation, :start_date) %><br>
 
-    <%= f.label "end date" %>
-    <%= date_select(:reservation, :end_date) %>
-
     <%= f.hidden_field :guest_id, :value => current_user.id %>
     <%= f.hidden_field :user_id, :value => @listing.user_id %>
     <%= f.submit %>

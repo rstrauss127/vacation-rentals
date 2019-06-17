@@ -21,29 +21,7 @@ Specs:
   - Description, Title, bathrooms, bedrooms
 
 - [ ] Include reasonable validations
-  [ ] User
-    [ ] new
-      [ ] email
-        [x] presence
-        [ ] uniqueness
-      [ ] password
-        [x] presence
-        [ ] length
-  - Listing
-    [ ] New
-      [ ] Title
-        [ ] presence
-        [ ] length
-      [ ] Bedrooms
-        [ ] presence
-        [x] numericality
-      [ ] Bathrooms
-        [ ] presence
-        [x] numericality
-      [ ] Description    
-        [ ] presence
-        [ ] length
-  - Reservation
+
 
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 
