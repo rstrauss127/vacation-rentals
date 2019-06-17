@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :listing
   has_many :users, through: :listing
 
+  
   def start_time
     self.my_related_model.start_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
   end
