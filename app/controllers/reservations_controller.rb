@@ -18,8 +18,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @listing = Listing.find(params[:listing_id])
-    @reservations = @listing.reservations
+    @reservations = Reservation.start_date_before(Date.today)
   end
 
   def show

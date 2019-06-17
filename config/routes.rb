@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   root 'listings#index'
 
   get '/logout' => 'sessions#destroy'
+
+  get '/start_date_before' => 'reservations#index'
 end
