@@ -14,7 +14,8 @@
           </div>
         </li>
     </ul>
-      <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
+    <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
+    
   </section>
 
   <%= render partial: "/calendar", locals: {reservations: @reservations} %>

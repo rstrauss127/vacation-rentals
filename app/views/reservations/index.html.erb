@@ -1,4 +1,18 @@
-<h1>Old Reservations</h1>
-<%= @reservations.each do |r| %>
-  <%= r %>
-<% end %>
+<section class="todoapp">
+  <header class="header">
+    <h1>Past Reservations</h1>
+  </header>
+  <section class="main">
+    <ul class="todo-list">
+      <% @reservations.each do |res| %>
+        <li>
+          <div class="view">
+            <label>Guest: <%= res.user_id%></label>
+            <label>Stayed at: <%= res.listing_id %></label>
+            <label>On: <%= res.start_date %></label>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</section>
