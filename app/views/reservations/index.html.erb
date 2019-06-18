@@ -7,9 +7,9 @@
       <% @reservations.each do |res| %>
         <li>
           <div class="view">
-            <label>Guest: <%= res.user_id%></label>
-            <label>Stayed at: <%= res.listing_id %></label>
-            <label>On: <%= res.start_date %></label>
+            <label>Guest: <%= res.guest_email%></label>
+            <label>Stayed at: <%= res.listing_title %></label>
+            <label>On: <%= res.start_date.to_date %></label>
           </div>
         </li>
       <% end %>
