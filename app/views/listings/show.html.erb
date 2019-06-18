@@ -3,7 +3,8 @@
   <header class="header">
 	   <h1><%= @listing.title %></h1>
 	</header>
-
+<%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation), class: 'new-todo' %><br>
+<%= link_to "View Reservations for this property", listing_reservations_path(@listing, @reservation), class: 'new-todo' %>
   <section class="main">
     <ul class="todo-list">
         <li>
@@ -14,8 +15,8 @@
           </div>
         </li>
     </ul>
-    <%= link_to "New Reservation", new_listing_reservation_path(@listing, @reservation) %>
-    
+
+
   </section>
 
   <%= render partial: "/calendar", locals: {reservations: @reservations} %>
