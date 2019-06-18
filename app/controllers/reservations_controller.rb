@@ -18,7 +18,13 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.start_date_before(Date.today)
+    if params[:listing_id]
+      @reservations = Reservation.where(listing_id: params[:listing_id])
+      @title = "Reservation list for #{@reservations.first.listing_title}"
+    else
+      @reservations = Reservation.start_date_before(Date.today)
+      @title = "Past Reservations"
+    end
   end
 
   def show

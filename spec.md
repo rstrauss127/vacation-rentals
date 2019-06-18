@@ -20,10 +20,20 @@ Specs:
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user
   - Description, Title, bathrooms, bedrooms
 
-- [ ] Include reasonable validations
+- [x] Include reasonable validations
+  - Reservations
+    unique start_date
+  - Users
+      must have unique email
+      must have password
+  - Listings
+      must have title
+      must have bedrooms, numerically
+      must have bathrooms, numerically
+      must have description
 
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-  listings/most_reservations
+- [x] Include a class level ActiveRecord scope method
+  /start_date_before reservations#start_date_before - shows all reservations that occurred before todays date.
 
 - [x] Include signup (how e.g. Devise)
 
