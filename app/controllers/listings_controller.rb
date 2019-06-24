@@ -2,16 +2,10 @@ class ListingsController < ApplicationController
   before_action :authentication_required
 
   def index
-    if session[:user_id].present? #is user logged in?
-      @listings = Listing.all
-      #raise @listings.inspect #was the controlroller able to get the lists from the db
-    else
-      redirect_to root_path
-    end
+    @listings = Listing.all
   end
 
   def show
-    # i need to load the listing
     @listing = Listing.find(params[:id])
     @reservations = @listing.reservations
   end
