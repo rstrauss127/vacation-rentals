@@ -13,8 +13,5 @@ class Listing < ApplicationRecord
 
   validates :description, presence: {message: "Description required"}
 
-  def self.most_popular
-    Reservation.group(:listing_id).count.first
-  end
 
 end

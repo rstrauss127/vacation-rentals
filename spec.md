@@ -15,7 +15,7 @@ Specs:
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
   - User has_many Reservations through Listings
-  * Reservation has_many Users through Listings *Do I need to add the multiple guest feature to make this work?*
+  * Reservation has_many Users through Listings 
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user
   - Description, Title, bathrooms, bedrooms
