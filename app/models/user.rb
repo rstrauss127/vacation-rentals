@@ -15,4 +15,7 @@ class User < ApplicationRecord
     end
   end
 
+  def self.most_reservations
+    self.left_joins(:reservations).group(:id).order('COUNT(reservations.id) DESC').limit(1)
+  end
 end

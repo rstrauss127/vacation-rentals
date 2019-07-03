@@ -13,8 +13,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.most_reservations.first
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :password, :admin)
+    params.require(:user).permit(:email, :password)
   end
 end

@@ -15,7 +15,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.create(listing_params)
+    @listing = Listing.new(listing_params)
     if @listing.save
       redirect_to listing_url(@listing)
     else
