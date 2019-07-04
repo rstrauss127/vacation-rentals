@@ -3,11 +3,13 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    render json: @listings, status: 200
   end
 
   def show
     @listing = Listing.find(params[:id])
     @reservations = @listing.reservations
+
   end
 
   def new
