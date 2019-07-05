@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 2019_07_05_203050) do
     t.string "address"
     t.string "type"
     t.float "distance"
+    t.string "link"
     t.integer "listing_id"
+    t.string "description"
   end
 
   create_table "listings", force: :cascade do |t|

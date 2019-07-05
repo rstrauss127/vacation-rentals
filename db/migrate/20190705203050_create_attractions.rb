@@ -5,7 +5,9 @@ class CreateAttractions < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :type
       t.float :distance
+      t.string :link
       t.integer :listing_id
+      t.string :description
     end
   end
 end
