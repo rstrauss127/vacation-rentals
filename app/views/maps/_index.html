@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: -25.344, lng: 131.036};
+  var madbeach = {lat: 27.793443, lng: -82.792302};
+  var jons_pass = {lat: 27.785773, lng: -82.783344};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 14, center: madbeach});
+  // The marker, positioned at Uluru
+  /*var marker = new google.maps.Marker({position: madbeach, map: map});
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: 'Beach!!'
+  });
+
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
+  });*/
+  addMarker(madbeach);
+  addMarker(jons_pass);
+  //Add marker function
+  function addMarker(cords) {
+    var marker = new google.maps.Marker({
+      position: cords,
+      map: map
+    });
+  }
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik&callback=initMap">
+    </script>
+  </body>
+</html>

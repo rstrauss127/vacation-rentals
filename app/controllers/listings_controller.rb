@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
-    render json: @listings, status: 200
+    #render json: @listings
   end
 
   def show
