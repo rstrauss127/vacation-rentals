@@ -15,7 +15,27 @@
     <% end %>
 
     <div id="listing_results">
-
+      <h2 id="listingTitle"></h2>
+      <p id="listingAddress"></p>
     </div>
 </section>
 <%= render "partials/footer" %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var listing = $.post('/listings', values);
+
+      listing.done(function(data) {
+        var listing = data;
+        $("#listingtTitle").text(listing["title"]);
+        $("#listingAddress").text(listing["address"]);
+      });
+    });
+  });
+</script>

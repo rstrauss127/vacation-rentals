@@ -19,7 +19,8 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
-      redirect_to listing_url(@listing)
+      #redirect_to listing_url(@listing)
+      render json: @listing, status: 201
     else
       render :new
     end
