@@ -22,5 +22,10 @@
 </section>
 
 <%= render "partials/footer" %>
-
+<section class="address">
+  <p id="address"><%= @listing.address %></p>
+  <p id="city"><%= @listing.city %></p>
+  <p id="state"><%= @listing.state %></p>
+  <a href="#" id="showMap">Show Map</a>
+</section>
 <%= render "maps/index" %>
