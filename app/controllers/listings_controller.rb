@@ -3,10 +3,12 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    #render json: @listings.only(:address), status: 200
   end
 
   def show
     @listing = Listing.find(params[:id])
+    @reservations = @listing.reservations
     render json: @listing, status: 200
   end
 
@@ -26,6 +28,6 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :description, :bathrooms, :bedrooms, :user_id, :address)
+    params.require(:listing).permit(:title, :description, :bathrooms, :bedrooms, :user_id, :address, :city, :state)
   end
 end
