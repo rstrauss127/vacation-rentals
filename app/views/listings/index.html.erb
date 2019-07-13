@@ -1,4 +1,4 @@
-<section class="todoapp">
+<section>
 
   <header class="header">
 		<h1>Listings</h1>
@@ -8,19 +8,19 @@
 
   <section class="main">
     <ul class="todo-list">
-
       <% @listings.each do |list| %>
         <li>
           <div class="view">
-            <label><a href="#"><%= link_to list.title, listing_path(list) %></a></label>
+            <%= link_to list.title, listing_path(list) %>
             <div id="listing-<%= list.id %>"><%= truncate(list.description) %></div>
+            <button class="js-more" data-id="<%= list.id %>">More Info</button>
           </div>
-          <button class="js-more" data-id="<%= list.id %>">More Info</button>
+
         </li>
     <% end %>
-
     </ul>
   </section>
+
 </section>
 
 <%= render "partials/footer" %>

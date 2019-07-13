@@ -3,7 +3,10 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
-    #render json: @listings.only(:address), status: 200
+    respond_to do |format|
+      format.html { render :index}
+      format.json {render json: @listings}
+    end
   end
 
   def show
