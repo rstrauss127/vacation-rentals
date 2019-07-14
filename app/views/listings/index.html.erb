@@ -1,5 +1,4 @@
 <section>
-
   <header class="header">
 		<h1>Listings</h1>
     <%= link_to "View past reservations", start_date_before_path, class: "new-todo" %>
@@ -20,7 +19,19 @@
     <% end %>
     </ul>
   </section>
-
 </section>
 
 <%= render "partials/footer" %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".js-more").on("click", function() {
+      var id = $(this).data("id");
+      $.get("/listings/" + id + ".json", function(data) {
+        console.log(data)
+        var descriptionText = "<p>" + data["description"] + "</p>";
+        $("#listing-" + id).html(descriptionText);
+      });
+    });
+  });
+</script>
