@@ -12,7 +12,10 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @reservations = @listing.reservations
-    render json: @listing, status: 200
+    respond_to do |format|
+      format.html { render :show}
+      format.json {render json: @listing}
+    end
   end
 
   def new
