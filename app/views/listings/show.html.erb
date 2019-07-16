@@ -34,12 +34,16 @@
       var state = $(this).data("state");
 
       $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},+${city},+${state}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(data) {
-        var lat = data.results[0].geometry.location.lat;
-        var lng = data.results[0].geometry.location.long;
-        $("#map").html(lat);
+        var cords = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
 
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: cords});
+        console.log("It worked !!");
       });
 
     });
   });
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik&callback=initMap">
 </script>
