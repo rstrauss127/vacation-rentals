@@ -1,16 +1,31 @@
+
+  <h1 id=<%= @listing.id %>>New Reservation for <%= @listing.title %></h1>
+
+
 <section class="new-todo">
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-
   <%= form_for([@listing, @reservation]) do |f| %>
     <%= f.label "start date" %>
     <%= date_select(:reservation, :start_date) %><br>
-
     <%= f.submit %>
-
   <% end %>
 </section>
 
 <%= render partial: "/calendar", locals: {reservations: @reservations} %>
 <%= render "partials/footer" %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('form').submit(function(event) {
+      event.preventDefault();
+
+      var values = $(this).serialize();
+      var id = $("h1");
+
+      var posting = $.post('/listings/' + id[0].id + '/reservations', values);
+
+    });
+  });
+</script>
