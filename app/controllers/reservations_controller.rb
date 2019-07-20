@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
     @reservation = @listing.reservations.build(reservation_params)
     @reservation.user_id = current_user.id
     if @reservation.save
-      redirect_to listing_reservation_path(@listing, @reservation)
+      render json: @reservation, status: 201
     else
       redirect_to new_listing_reservation_path
       flash[:notice] = @reservation.errors.full_messages_for(:start_date)
