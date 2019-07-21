@@ -1,2 +1,2 @@
-$(document).ready ->
-  alert "page has loaded!"
+#$(document).ready ->
+#  alert "page has loaded!"
