@@ -21,27 +21,3 @@
 </section>
 
 <%= render "partials/footer" %>
-
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $(".js-more").on("click", function() {
-      var id = $(this).data("id");
-      $.get("/listings/" + id + ".json", function(data) {
-        var descriptionText = "<p>" + data["description"] + "</p>";
-        $("#listing-" + id).html(descriptionText);
-      });
-    });
-  });
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $("document").ready(function() {//upon page loading,
-      //grab all listings, make them into models.
-      $.get("/listings.json", function(data) {
-        console.log(data);
-        //create JavaScript models with data
-      });
-    });
-  });
-</script>

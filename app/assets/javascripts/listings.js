@@ -2,8 +2,29 @@ $( "document" ).ready(function() {
     console.log( "ready!" );
 });
 
-$(function initMap() {
+
+$("document.listings.index").ready(function() {//upon page loading,
+  //grab all listings, make them into models.
+  $.get("/listings.json", function(data) {
+    console.log(data);
+    //create JavaScript models with data
+  });
+});
+
+
+$(function showDescription() {
   $(".js-more").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/listings/" + id + ".json", function(data) {
+      var descriptionText = "<p>" + data["description"] + "</p>";
+      $("#listing-" + id).html(descriptionText);
+    });
+  });
+});
+
+
+$(function initMap() {
+  $(".map").on("click", function() {
     var address = $(this).data("address");
     var city = $(this).data("city");
     var state = $(this).data("state");
