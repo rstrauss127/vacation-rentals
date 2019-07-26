@@ -1,12 +1,19 @@
-<head>
-  <%= javascript_include_tag params[:controller] %>
-</head>
+
   <header class="header">
 		<h1>Listings</h1>
     <%= link_to "View past reservations", start_date_before_path, class: "new-todo" %>
     <%= link_to "New Listing", new_listing_path, class: "new-todo" %>
 	</header>
 
-<button id="getListings">Get listings</button>
+<button id="getListings">Get Listings</button>
+    <ul class="todo-list">
+      <% @listings.each do |list| %>
+        <div id="listing-<%= list.id %>">
+
+        </li>
+    <% end %>
+    </ul>
+
+
 
 <%= render "partials/footer" %>
