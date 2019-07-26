@@ -1,12 +1,10 @@
-
-
-$("listings.index").ready(function() {//upon page loading,
-  //grab all listings, make them into models.
-  $.get("/listings.json", function(data) {
-    console.log(data);
-    //create JavaScript models with data
-  });
+$(function getListings() {
+    $("#getListings").on("click", function() {
+      const req = $.get('/listings.json');
+      console.log(req);
+    });
 });
+
 
 
 $(function showDescription() {
@@ -18,7 +16,6 @@ $(function showDescription() {
     });
   });
 });
-
 
 $(function initMap() {
   $(".map").on("click", function() {
