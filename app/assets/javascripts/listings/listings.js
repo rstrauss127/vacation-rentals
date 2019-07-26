@@ -1,9 +1,6 @@
-$( "document" ).ready(function() {
-    console.log( "ready!" );
-});
 
 
-$("document.listings.index").ready(function() {//upon page loading,
+$("listings.index").ready(function() {//upon page loading,
   //grab all listings, make them into models.
   $.get("/listings.json", function(data) {
     console.log(data);
