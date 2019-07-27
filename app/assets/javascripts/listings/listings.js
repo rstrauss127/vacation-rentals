@@ -7,7 +7,6 @@ $(function getListings() {
 
           var listingText = "<p><a href=listings/" + listing.id + ">" + listing.title + "</a></p>";//prototype
 
-          console.log(listingText);
           $("#listing-" + listing.id).append(listingText);
         };
       });
