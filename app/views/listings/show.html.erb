@@ -25,7 +25,7 @@
 <%= render "partials/footer" %>
 
 <button class="map" data-address="<%= @listing.address %>" data-city="<%= @listing.city %>" data-state="<%= @listing.state %>">Show map</button>
-
+<button class="getReservations" data-id="<%= @listing.id %>">Show Reserevations List</button>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik&callback=initMap">
 </script>
