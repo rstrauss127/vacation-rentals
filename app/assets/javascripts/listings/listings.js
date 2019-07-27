@@ -2,8 +2,11 @@ $(function getListings() {
     $("#getListings").on("click", function() {
       $.get('/listings.json', function(data) {
         for(i = 0; i < data.length; i++) {
+
           var listing = new Listing(data[i]);
-          var listingText = "<p>" + listing.title + "</p>";
+
+          var listingText = "<p><a href=listings/" + listing.id + ">" + listing.title + "</a></p>";//prototype
+
           console.log(listingText);
           $("#listing-" + listing.id).append(listingText);
         };
