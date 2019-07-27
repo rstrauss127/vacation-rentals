@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
   root 'listings#index'
   get '/logout' => 'sessions#destroy'
-  get '/start_date_before' => 'reservations#index'
+
   get '/most_reservations' => 'users#index'
 
 end

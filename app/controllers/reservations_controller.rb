@@ -18,13 +18,13 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    if params[:listing_id]
+
       @reservations = Reservation.where(listing_id: params[:listing_id])
       @title = "Reservation list for #{@reservations.first.listing_title}"
-    else
-      @reservations = Reservation.start_date_before(Date.today)
-      @title = "Past Reservations"
-    end
+      respond_to do |format|
+        format.html {render :index}
+        format.json { render json: @reservations}
+      end
   end
 
   def show
