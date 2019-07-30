@@ -8,7 +8,7 @@ $(function createReservation() {
     var posting = $.post('/listings/' + id[0].id + '/reservations', values);
 
     posting.done(function(data) { //what's the point of posting.done? do i need to attach an event listener?
-      reservation = new Reservation();
+      reservation = new Reservation(data);
       date = reservation["start_date"].slice(0, 10);
       $(`#${date}`).text("Booked");
     });
@@ -21,8 +21,10 @@ $(function getReservations() {
     const reservations = $.get("/listings/" + $(this).data("id") + '/reservations.json');
 
     reservations.done(function(data) {
-      console.log(data);
-      //create reservations from data
+      for(res in data) {
+        reservation = new Reservation(data[res]); //add prototype to Reservation class to format
+        reservation.format();
+      }
       //append new reservations
     });
   });
@@ -36,3 +38,6 @@ class Reservation {
     this.user_id = data.user_id;
   }
 }
+Reservation.prototype.format = function () {
+  $("#reservations").append(`<p>${this.user_id} stayed here on ${this.start_date}</p>`);
+};
