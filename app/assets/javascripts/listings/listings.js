@@ -1,18 +1,3 @@
-$(function getListings() {
-    $("#getListings").on("click", function() {
-      $.get('/listings.json', function(data) {
-        for(i = 0; i < data.length; i++) {
-
-          var listing = new Listing(data[i]);
-
-          var listingText = "<p><a href=listings/" + listing.id + ">" + listing.title + "</a></p>";//prototype
-
-          $("#listing-" + listing.id).append(listingText);
-        };
-      });
-    });
-});
-
 class Listing {
   constructor(data) {
     this.id = data.id;
@@ -23,6 +8,22 @@ class Listing {
     this.description =  data.description;
   }
 }
+
+Listing.prototype.format = function () {
+  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`)
+};
+
+$(function getListings() {
+    $("#getListings").on("click", function() {
+      $.get('/listings.json', function(data) {
+        for(i = 0; i < data.length; i++) {
+          listing = new Listing(data[i]);
+          listing.format();
+        };
+      });
+    });
+});
+
 
 $(function showDescription() {
   $(".js-more").on("click", function() {
@@ -37,13 +38,8 @@ $(function showDescription() {
 $(function initMap() {
   $(".map").on("click", function() {
     $.get('/listings/' + $(this).data("id") + ".json", function (data) {
-      const address = data["address"];
-      const city = data["city"];
-      const state = data["state"];
-
-      $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},+${city},+${state}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(data) {
-        const cords = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
-
+      $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${data["address"]},+${data["city"]},+${data["state"]}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(map_data) {
+        const cords = {lat: map_data.results[0].geometry.location.lat, lng: map_data.results[0].geometry.location.lng};
         const map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: cords});
 
         const marker = new google.maps.Marker({
