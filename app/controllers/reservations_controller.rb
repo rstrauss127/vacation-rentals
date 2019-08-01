@@ -18,13 +18,12 @@ class ReservationsController < ApplicationController
   end
 
   def index
-
-      @reservations = Reservation.where(listing_id: params[:listing_id])
-      @title = "Reservation list for #{@reservations.first.listing_title}"
-      respond_to do |format|
-        format.html {render :index}
-        format.json { render json: @reservations}
-      end
+    @reservations = Reservation.where(listing_id: params[:listing_id])
+    @title = "Reservation list for #{@reservations.first.listing_title}"
+    respond_to do |format|
+      format.html {render :index}
+      format.json { render json: @reservations}
+    end
   end
 
   def show

@@ -36,20 +36,21 @@ $(function showDescription() {
 
 $(function initMap() {
   $(".map").on("click", function() {
-    var address = $(this).data("address");
-    var city = $(this).data("city");
-    var state = $(this).data("state");
+    $.get('/listings/' + $(this).data("id") + ".json", function (data) {
+      const address = data["address"];
+      const city = data["city"];
+      const state = data["state"];
 
-    $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},+${city},+${state}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(data) {
-      var cords = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
+      $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address},+${city},+${state}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(data) {
+        const cords = {lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng};
 
-      var map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: cords});
+        const map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: cords});
 
-      var marker = new google.maps.Marker({
-        position: cords,
-        map: map
+        const marker = new google.maps.Marker({
+          position: cords,
+          map: map
+        });
       });
     });
-
   });
 });
