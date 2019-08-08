@@ -10,7 +10,7 @@ class Listing {
 }
 
 Listing.prototype.format = function () {
-  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`)
+  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`);
 };
 
 $(function getListings() {
@@ -25,15 +25,7 @@ $(function getListings() {
 });
 
 
-$(function showDescription() {
-  $(".js-more").on("click", function() {
-    var id = $(this).data("id");
-    $.get("/listings/" + id + ".json", function(data) {
-      var descriptionText = "<p>" + data["description"] + "</p>";
-      $("#listing-" + id).html(descriptionText);
-    });
-  });
-});
+
 
 $(function initMap() {
   $(".map").on("click", function() {
@@ -41,7 +33,6 @@ $(function initMap() {
       $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${data["address"]},+${data["city"]},+${data["state"]}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(map_data) {
         const cords = {lat: map_data.results[0].geometry.location.lat, lng: map_data.results[0].geometry.location.lng};
         const map = new google.maps.Map(document.getElementById('map'), {zoom: 14, center: cords});
-
         const marker = new google.maps.Marker({
           position: cords,
           map: map

@@ -5,8 +5,7 @@
 	</header>
 
   <%= link_to "New Reservation", new_listing_reservation_path(@listing), class: 'new-todo' %><br>
-  <%= link_to "View Reservations for this property", listing_reservations_path(@listing, @reservation), class: 'new-todo' %>
-
+  
   <section class="main">
     <ul class="todo-list">
         <li>
@@ -22,11 +21,11 @@
 
 <div id="map"></div>
 <div id="reservations"></div>
-
-<%= render "partials/footer" %>
-
 <button class="map" data-id="<%= @listing.id %>">Show map</button>
 <button class="getReservations" data-id="<%= @listing.id %>">Show Reserevations List</button>
+<%= render "partials/footer" %>
+
+
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik&callback=initMap">
 </script>

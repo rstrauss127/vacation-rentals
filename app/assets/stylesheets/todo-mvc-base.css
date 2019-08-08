@@ -5,19 +5,26 @@ body {
 }
 
 button {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background: none;
-	font-size: 100%;
-	vertical-align: baseline;
-	font-family: inherit;
-	font-weight: inherit;
-	color: inherit;
-	-webkit-appearance: none;
-	appearance: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	background: #b12d2b;
+	border: 1px solid #777;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-bottom-color: #333;
+	border-bottom-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	padding: 6px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	user-select: none;
+	position: relative;
+	border-radius: .3em;
+}
+a {
+	color: #9f3c3c;
+	font-weight: 500;
+	cursor: pointer;
 }
 
 body {
@@ -259,7 +266,7 @@ body {
 .footer {
 	color: #777;
 	padding: 10px 15px;
-	height: 20px;
+	height: 40px;
 	text-align: center;
 	border-top: 1px solid #e6e6e6;
 }
