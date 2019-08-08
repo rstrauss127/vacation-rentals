@@ -1,18 +1,3 @@
-class Listing {
-  constructor(data) {
-    this.id = data.id;
-    this.title = data.title;
-    this.address = data.address;
-    this.city = data.city;
-    this.state = data.state;
-    this.description =  data.description;
-  }
-}
-
-Listing.prototype.format = function () {
-  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`);
-};
-
 $(function getListings() {
     $("#getListings").on("click", function() {
       $.get('/listings.json', function(data) {
@@ -23,9 +8,6 @@ $(function getListings() {
       });
     });
 });
-
-
-
 
 $(function initMap() {
   $(".map").on("click", function() {
@@ -41,3 +23,18 @@ $(function initMap() {
     });
   });
 });
+
+class Listing {
+  constructor(data) {
+    this.id = data.id;
+    this.title = data.title;
+    this.address = data.address;
+    this.city = data.city;
+    this.state = data.state;
+    this.description =  data.description;
+  }
+}
+
+Listing.prototype.format = function () {
+  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`);
+};

@@ -1,18 +1,11 @@
-
-  <header class="header">
-		<h1>Listings</h1>
-    <%= link_to "New Listing", new_listing_path, class: "new-todo" %>
-	</header>
+<h1>Listings Index</h1>
 
 <button id="getListings">Get Listings</button>
 
 <ul class="todo-list">
   <% @listings.each do |list| %>
     <div id="listing-<%= list.id %>">
-
-<% end %>
+  <% end %>
 </ul>
-
-
 
 <%= render "partials/footer" %>

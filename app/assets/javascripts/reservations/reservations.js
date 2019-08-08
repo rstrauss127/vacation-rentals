@@ -22,7 +22,7 @@ $(function getReservations() {
 
     reservations.done(function(data) {
       for(res in data) {
-        reservation = new Reservation(data[res]); //add prototype to Reservation class to format
+        reservation = new Reservation(data[res]); 
         reservation.format();
       }
       //append new reservations
