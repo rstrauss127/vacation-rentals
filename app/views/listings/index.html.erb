@@ -1,11 +1,10 @@
 <h1>Listings Index</h1>
 
-<button id="getListings">Get Listings</button>
+<button onclick="getListings()">Get Listings</button>
+<button id="sort">Sort</button>
 
-<ul class="todo-list">
-  <% @listings.each do |list| %>
-    <div id="listing-<%= list.id %>">
-  <% end %>
-</ul>
+<div class="listings">
+
+</div>
 
 <%= render "partials/footer" %>

@@ -1,13 +1,42 @@
-$(function getListings() {
-    $("#getListings").on("click", function() {
-      $.get('/listings.json', function(data) {
-        for(i = 0; i < data.length; i++) {
-          listing = new Listing(data[i]);
-          listing.format();
-        };
-      });
-    });
+$(document).ready(function() {
+    sortListings();
 });
+
+function sortListings() {
+  $("#sort").on("click", function() {
+    $.get('/listings.json', function(data) {
+      data.sort(function(a, b) {
+        var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      }
+    );
+      console.log(data);
+      data.forEach(function(element) {
+        l = new Listing(element);
+        l.format();
+      })
+    });
+  })
+}
+
+function getListings() {
+  $.get('/listings.json', function(data) {
+    for(list in data) {
+      const listing = new Listing(data[list]);
+      listing.format();
+    };
+  });
+};
+
 
 $(function initMap() {
   $(".map").on("click", function() {
@@ -36,5 +65,5 @@ class Listing {
 }
 
 Listing.prototype.format = function () {
-  $(`#listing-${this.id}`).append(`<a href=listings/${this.id}>${this.title}</a>`);
+  $(`.listings`).append(`<a href=listings/${this.id}>${this.title}</a>`);
 };
