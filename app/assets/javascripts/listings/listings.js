@@ -19,26 +19,16 @@ function sortListings() {
         return 0;
       }
     );
-      console.log(data);
       data.forEach(function(element) {
-        l = new Listing(element);
+        const l = new Listing(element);
         l.format();
       })
     });
   })
 }
 
-function getListings() {
-  $.get('/listings.json', function(data) {
-    for(list in data) {
-      const listing = new Listing(data[list]);
-      listing.format();
-    };
-  });
-};
 
-
-$(function initMap() {
+function initMap() {
   $(".map").on("click", function() {
     $.get('/listings/' + $(this).data("id") + ".json", function (data) {
       $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${data["address"]},+${data["city"]},+${data["state"]}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(map_data) {
@@ -51,7 +41,7 @@ $(function initMap() {
       });
     });
   });
-});
+};
 
 class Listing {
   constructor(data) {
