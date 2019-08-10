@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 function sortListings() {
-  $("#sort").on("click", function() {
+  $("#sort").click(function() {
     $.get('/listings.json', function(data) {
       data.sort(function(a, b) {
         var nameA = a.title.toUpperCase(); // ignore upper and lowercase
@@ -14,7 +14,6 @@ function sortListings() {
         if (nameA > nameB) {
           return 1;
         }
-
         // names must be equal
         return 0;
       }
@@ -29,7 +28,7 @@ function sortListings() {
 
 
 function initMap() {
-  $(".map").on("click", function() {
+  $(".map").click(function() {
     $.get('/listings/' + $(this).data("id") + ".json", function (data) {
       $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${data["address"]},+${data["city"]},+${data["state"]}&key=AIzaSyBhyxBrZNJeKGNZQuFdE6Phx_BDhkERGik`, function(map_data) {
         const cords = {lat: map_data.results[0].geometry.location.lat, lng: map_data.results[0].geometry.location.lng};

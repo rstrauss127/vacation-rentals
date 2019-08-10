@@ -20,12 +20,12 @@ $(function createReservation() {
 });
 
 function getReservations() {
-  $(".getReservations").on("click", function() {
+  $(".getReservations").click(function() {
     $.get("/listings/" + $(this).data("id") + '/reservations.json', function(data) {
       data.forEach(function(element) {
         const reservation = new Reservation(element);
         reservation.format();
-      })
+      });
     });
   });
 };
