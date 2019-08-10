@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    getReservations();
+});
+
 $(function createReservation() {
   $('form').submit(function(event) {
     event.preventDefault();
@@ -15,20 +19,16 @@ $(function createReservation() {
   });
 });
 
-
-$(function getReservations() {
+function getReservations() {
   $(".getReservations").on("click", function() {
-    const reservations = $.get("/listings/" + $(this).data("id") + '/reservations.json');
-
-    reservations.done(function(data) {
-      for(res in data) {
-        reservation = new Reservation(data[res]); 
+    $.get("/listings/" + $(this).data("id") + '/reservations.json', function(data) {
+      data.forEach(function(element) {
+        const reservation = new Reservation(element);
         reservation.format();
-      }
-      //append new reservations
+      })
     });
   });
-});
+};
 
 
 class Reservation {
